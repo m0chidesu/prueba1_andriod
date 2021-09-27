@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: ProductosPage
+  },
+  {
+    path: 'detalle-productos',
+    loadChildren: () => import('./detalle-productos/detalle-productos.module').then( m => m.DetalleProductosPageModule)
+  },
+  {
+    path: 'agregar-productos',
+    loadChildren: () => import('./agregar-productos/agregar-productos.module').then( m => m.AgregarProductosPageModule)
   }
 ];
 
