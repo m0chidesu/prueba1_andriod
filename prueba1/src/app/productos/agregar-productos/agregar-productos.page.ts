@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-agregar-productos',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agregar-productos.page.scss'],
 })
 export class AgregarProductosPage implements OnInit {
+  
 
-  constructor() { }
+  constructor(private serviceservice: ServiceService) { }
 
   ngOnInit() {
+    this.serviceservice.addProductos;
+
+   
   }
 
 }
