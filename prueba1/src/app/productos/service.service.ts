@@ -55,4 +55,15 @@ export class ServiceService {
       return serv.id !== productoID
     })
   }
+  //Agregar producto
+  addProductos(nom: string, imgURL: string, pre: number){
+    this.productos.push(
+      {
+       id : this.productos.length + 1 + "",
+       nombre : nom,
+
+      }
+    )
+
+  }
 }
