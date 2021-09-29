@@ -19,5 +19,10 @@ export class ProductosPage implements OnInit {
     //Vista al iniciar la app
     this.productos = this.servicioProductos.getProductos();
   }
-
+  redirectAgregar(){
+    //chequeo de redireccion por consola
+    console.log('redirect pass')
+    //redireccion a agregar
+    this.router.navigate(['/agregar-productos'])
+  }
 }
