@@ -44,4 +44,9 @@ export class ServiceService {
     } )
     }
   }
+  deleteProductos(productoID){
+    this.productos = this.productos.filter(serv => {
+      return serv.id !== productoID
+    })
+  }
 }

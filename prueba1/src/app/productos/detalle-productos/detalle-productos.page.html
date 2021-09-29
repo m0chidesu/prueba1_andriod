@@ -1,9 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detalle_productos</ion-title>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{datos.nombre}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="delete()">
+        <ion-icon name="trash-outline"></ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="datos.imagenURL"></ion-img> 
+      </ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{datos.nombre}}</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf= "datos.comentarios && datos.conentarios.length > 0; else sinComentarios">
+          <ion-item *ngFor="let com of datos.comentarios">
+            {{com}}
+          </ion-item>
+        </ion-list>
+
+        <ng-template #sinComentarios>
+          <ion-text>
+            <p class="ion-text-center">Sin Comentarios</p>
+          </ion-text>
+        </ng-template>
+
+        
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>
