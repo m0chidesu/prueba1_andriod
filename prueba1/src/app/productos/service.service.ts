@@ -56,11 +56,15 @@ export class ServiceService {
     })
   }
   //Agregar producto
-  addProductos(nom: string, imgURL: string, pre: number){
+  addProductos(nom: string, imgURL: string, pre: number, com: string[] ){
     this.productos.push(
       {
        id : this.productos.length + 1 + "",
        nombre : nom,
+       imagenURL : imgURL,
+       precio : pre,
+       comentarios : com
+
 
       }
     )
