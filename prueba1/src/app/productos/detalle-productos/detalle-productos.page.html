@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -30,14 +30,21 @@
         <h1 class="ion-text-center">{{datos.nombre}}</h1>
       </ion-col>
     </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">Precio: ${{datos.precio}}</h1>
+      </ion-col>
+    </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-list *ngIf= "datos.comentarios && datos.conentarios.length > 0; else sinComentarios">
+        <ion-list *ngIf= "datos.comentarios && datos.comentarios.length > 0; else sinComentarios">
           <ion-item *ngFor="let com of datos.comentarios">
             {{com}}
           </ion-item>
         </ion-list>
+        <ion-button color="success" size="medium" type="submit" expand="block">Comprar</ion-button>
 
         <ng-template #sinComentarios>
           <ion-text>

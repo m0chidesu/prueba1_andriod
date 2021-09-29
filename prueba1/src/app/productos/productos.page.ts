@@ -8,6 +8,7 @@ import { ServiceService } from './service.service';
 })
 export class ProductosPage implements OnInit {
   private productos = []
+  private user = localStorage.getItem("datosUser")
   constructor(private servicioProductos: ServiceService, private router : Router) { }
 
   ngOnInit() {

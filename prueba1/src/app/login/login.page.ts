@@ -18,8 +18,10 @@ export class LoginPage implements OnInit {
 
     console.log(form.value) //para testeo (unused)
     if(user == "admin" && pass == "123"){
+      localStorage.setItem("datosUser",user);
       //redirect a productos
       this.router.navigate(['/productos'])
+      
     }else{
       console.log('Error')
     }
