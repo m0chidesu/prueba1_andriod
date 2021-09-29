@@ -1,9 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+<form #form= "ngForm" (ngSubmit) = "login(form)">
+  <ion-grid>
+    <ion-row color="primary" justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <h3 class="ion-text-center">Iniciar Sesion</h3>
+        <ion-item>
+          <ion-input name="name" type="text" placeholder="Usuario" ngModel requiered></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="password" type="password" placeholder="Contraseña" ngModel requiered></ion-input>
+        </ion-item>
+        <ion-button size="large" type="submit" expand="block">Entrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
 </ion-content>
