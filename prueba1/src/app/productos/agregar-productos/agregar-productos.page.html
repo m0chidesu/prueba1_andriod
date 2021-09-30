@@ -13,10 +13,10 @@
      <ion-card>
        <ion-card-content>
          <ion-input type="text" placeholder ="Ingrese nombre" #nom></ion-input>
-         <ion-input type="text" placeholder ="Ingrese nombre" #pre></ion-input>
-         <ion-input type="text" placeholder ="Ingrese nombre" #imgURL></ion-input>
-         <ion-input type="text" placeholder ="Ingrese nombre" #com></ion-input>
-         <ion-button color="success" (click) = "addProducto(nom,pre,imgURL,com)"></ion-button>
+         <ion-input type="text" placeholder ="Ingrese precio" #pre></ion-input>
+         <ion-input type="text" placeholder ="Ingrese imagen (URL)" #imgURL></ion-input>
+         <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #com></ion-input>
+         <ion-button class ="ion-text-center" color="success" (click) = "addProducto(nom,pre,imgURL,com)">Agregar Producto</ion-button>
        </ion-card-content>
      </ion-card>
    </ion-col>
