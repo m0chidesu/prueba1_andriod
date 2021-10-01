@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../service.service';
 import { Producto } from './producto.model';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle-productos',
@@ -11,7 +12,7 @@ import { Producto } from './producto.model';
 export class DetalleProductosPage implements OnInit {
 
   datos : Producto 
-  constructor(private  activatedRoute : ActivatedRoute, private productosServicio : ServiceService, private router : Router) { }
+  constructor(private  activatedRoute : ActivatedRoute, private productosServicio : ServiceService, private router : Router, private alertController : AlertController) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paraMap =>{
@@ -26,11 +27,32 @@ export class DetalleProductosPage implements OnInit {
   }
 
   //metodo delete
-  delete(){
+  async delete(){
     //test en consola (unused)
-    console.log("Eliminado pass")
-    this.productosServicio.deleteProductos(this.datos.id)
-    this.router.navigate(['/productos'])
+
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirme',
+      message: '<strong>¿Seguro que quiere elminar este produto?</strong>',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+          }
+        }, {
+          text: 'Eliminar',
+          handler: () => {
+            this.productosServicio.deleteProductos(this.datos.id)
+            this.router.navigate(['/productos'])
+            console.log("Eliminado pass")
+
+          }
+        }
+      ]
+
+    });
+    await alert.present();
   }
-  
 }

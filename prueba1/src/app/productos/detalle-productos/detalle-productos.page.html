@@ -30,6 +30,10 @@
         <h1 class="ion-text-center">{{datos.nombre}}</h1>
       </ion-col>
     </ion-row>
+
+    <ion-list *ngIf= "datos.disponibilidad == false; else noDisponible">
+      <h1>Disponible</h1>
+    </ion-list>
     
     <ion-row>
       <ion-col>
@@ -49,6 +53,12 @@
         <ng-template #sinComentarios>
           <ion-text>
             <p class="ion-text-center">Sin Comentarios</p>
+          </ion-text>
+        </ng-template>
+
+        <ng-template #noDisponible>
+          <ion-text>
+            <h1 class="ion-text-center">No disponible</h1>
           </ion-text>
         </ng-template>
 

@@ -14,14 +14,14 @@ export class AgregarProductosPage implements OnInit {
 
   ngOnInit() {
   }
-  addProducto(nom,imgURL,pre,com){
+  addProducto(nom,disp,imgURL,pre,com){
     var lista = []
     if(com.value !== ""){ 
       lista.push(com.value)
     }else{
       lista = null;
     }
-    this.serviceservice.addProductos(nom.value, imgURL.value, pre.value, lista);
+    this.serviceservice.addProductos(nom.value, disp.value , imgURL.value, pre.value, lista);
 
     this.router.navigate(['/productos'])
   }
