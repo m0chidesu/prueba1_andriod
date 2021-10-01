@@ -25,4 +25,8 @@ export class ProductosPage implements OnInit {
     //redireccion a agregar
     this.router.navigate(['/agregar-productos'])
   }
+  redirectLogin(){
+    console.log('redirect pass')
+    this.router.navigate(['/login'])
+  }
 }

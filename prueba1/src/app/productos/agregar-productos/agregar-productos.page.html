@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/productos"></ion-back-button>
     </ion-buttons>
-    <ion-title>agregar-productos</ion-title>
+    <ion-title>Agregar Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
          <ion-input type="text" placeholder ="Ingrese precio" #pre></ion-input>
          <ion-input type="text" placeholder ="Ingrese imagen (URL)" #imgURL></ion-input>
          <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #com></ion-input>
-         <ion-button class ="ion-text-center" color="success" (click) = "addProducto(nom,pre,imgURL,com)">Agregar Producto</ion-button>
+         <ion-button class ="ion-text-center" color="success" (click) = "addProducto(nom,imgURL,pre,com)">Agregar Producto</ion-button>
        </ion-card-content>
      </ion-card>
    </ion-col>
