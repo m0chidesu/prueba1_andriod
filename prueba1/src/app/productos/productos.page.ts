@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from './service.service';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.page.html',
@@ -9,7 +10,7 @@ import { ServiceService } from './service.service';
 export class ProductosPage implements OnInit {
   private productos = []
   private user = localStorage.getItem("datosUser")
-  constructor(private servicioProductos: ServiceService, private router : Router) { }
+  constructor(private servicioProductos: ServiceService, private router : Router, private alertController: AlertController) { }
 
   ngOnInit() {
     //obtener la lista
@@ -25,8 +26,27 @@ export class ProductosPage implements OnInit {
     //redireccion a agregar
     this.router.navigate(['/agregar-productos'])
   }
-  redirectLogin(){
-    console.log('redirect pass')
-    this.router.navigate(['/login'])
+  async redirectLogin(){
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: '¿Cerrar Sesion?',
+      message: '<strong>¿Seguro que desea cerrar la sesión?</strong>',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+          }
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            this.router.navigate(['/login'])
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
