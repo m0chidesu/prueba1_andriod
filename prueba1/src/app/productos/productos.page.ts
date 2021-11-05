@@ -8,17 +8,33 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./productos.page.scss'],
 })
 export class ProductosPage implements OnInit {
-  private productos = []
+  private productos : any = []
   private user = localStorage.getItem("datosUser")
   constructor(private servicioProductos: ServiceService, private router : Router, private alertController: AlertController) { }
 
   ngOnInit() {
     //obtener la lista
-    this.productos = this.servicioProductos.getProductos();
+    this.servicioProductos.getProductos().subscribe(
+      (resp) => {
+        this.productos = resp,
+        console.log(resp)
+
+      },
+      (err) => {
+        console.log(err)
+      }
+    )
   }
   ionViewWillEnter(){
     //Vista al iniciar la app
-    this.productos = this.servicioProductos.getProductos();
+    this.servicioProductos.getProductos().subscribe(
+      (resp) => {
+        this.productos = resp
+      },
+      (err) => { console.log(err)
+
+      }
+    )
   }
   redirectAgregar(){
     //chequeo de redireccion por consola

@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'agregar-productos',
     loadChildren: () => import('./agregar-productos/agregar-productos.module').then( m => m.AgregarProductosPageModule)
+  },
+  {
+    path: 'actualizar-productos',
+    loadChildren: () => import('./actualizar-productos/actualizar-productos.module').then( m => m.ActualizarProductosPageModule)
   }
 ];
 
