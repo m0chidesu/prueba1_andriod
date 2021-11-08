@@ -32,9 +32,8 @@ export class ServiceService {
     }
     return this.http.post('http://localhost:1337/productos', datos)
   }
-}
 
-updateProductos(productoID : string nom: string, disp : boolean, imgURL: string, pre: number, com: string[]){
+  updateProductos(productoID : string , nom: string, disp : boolean, imgURL: string, pre: number, com: string[]){
     
     var datos = {
       nombre : nom,
@@ -45,4 +44,8 @@ updateProductos(productoID : string nom: string, disp : boolean, imgURL: string,
     }
   return this.http.post('http://localhost:1337/productos' + productoID, datos)
   }
+
+}
+
+
 
