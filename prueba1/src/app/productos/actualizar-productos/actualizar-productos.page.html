@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>actualizar-productos</ion-title>
+    <ion-title>Editar producto</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input type="text" placeholder ="Ingrese nombre" #nom></ion-input>
+         <div>
+           <ion-checkbox type="checkbox"color="primary" #disp></ion-checkbox>
+           <h3>¿Disponible?</h3>
+         </div>
+ 
+          <ion-input type="text" placeholder ="Ingrese precio" #pre></ion-input>
+          <ion-input type="text" placeholder ="Ingrese imagen (URL)" #imgURL></ion-input>
+          <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #com></ion-input>
+          <ion-button class ="ion-text-center" color="success" (click) = "addProducto(nom,disp,imgURL,pre,com)">Agregar Producto</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

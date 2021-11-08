@@ -5,12 +5,20 @@
     </ion-buttons>
     <ion-title>{{datos.nombre}}</ion-title>
 
+    <!--BOTON ELIMINAR-->
     <ion-buttons slot="end">
-      <ion-button (click)="delete()">
+      <ion-button (click)="eliminarProducto()">
         <ion-icon name="trash-outline"></ion-icon>
 
       </ion-button>
 
+    </ion-buttons>
+
+    <!--BOTON EDITAR-->
+    <ion-buttons slot="end">
+      <ion-button (click)="editarProducto()">
+          <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
 
 
@@ -31,7 +39,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-list *ngIf= "datos.disponibilidad == false; else noDisponible">
+    <ion-list *ngIf= "datos.Disponibilidad == false; else noDisponible">
       <h1 class="ion-text-center">Disponible</h1>
     </ion-list>
     

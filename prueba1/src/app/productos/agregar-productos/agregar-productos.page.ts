@@ -21,9 +21,17 @@ export class AgregarProductosPage implements OnInit {
     }else{
       lista = null;
     }
-    this.serviceservice.addProductos(nom.value, disp.value , imgURL.value, pre.value, lista);
+    this.serviceservice.addProductos(nom.value, disp.value , imgURL.value, pre.value, lista).subscribe(
+      (resp) => {
+        console.log("Se agregó? : ", resp)
+        this.router.navigate(['/productos'])
+      },
+      (error) => {
+        console.log("Error: ", error)
+      }
+    );
 
-    this.router.navigate(['/productos'])
+
   }
 
 }

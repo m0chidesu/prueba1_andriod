@@ -30,7 +30,7 @@ export class ServiceService {
       precio : pre,
       comentarios : com
     }
-    return this.http.post('http://localhost:1337/productos', datos)
+    return this.http.post('http://localhost:1337/productos', datos);
   }
 
   updateProductos(productoID : string , nom: string, disp : boolean, imgURL: string, pre: number, com: string[]){

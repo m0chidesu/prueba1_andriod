@@ -48,30 +48,9 @@ export class DetalleProductosPage implements OnInit {
     )
   }
 
-  //metodo delete
-  async delete(){
-    //test en consola (unused)
+editarProducto(){
+  this.router.navigate(['actualizar-productos/' + this.idprod])
+}
 
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Confirme',
-      message: '<strong>¿Seguro que quiere elminar este produto?</strong>',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-          }
-        }, {
-          text: 'Eliminar',
-          handler: () => {
-            this.eliminarProducto()
-          }
-        }
-      ]
-
-    });
-    await alert.present();
-  }
+  
 }
