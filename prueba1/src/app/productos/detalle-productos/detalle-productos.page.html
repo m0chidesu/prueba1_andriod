@@ -52,8 +52,8 @@
     <ion-row>
       <ion-col>
         <ion-list *ngIf= "datos.comentarios && datos.comentarios.length > 0; else sinComentarios">
-          <ion-item *ngFor="let com of datos.comentarios">
-            {{com}}
+          <ion-item *ngFor="let c of com">
+            {{c}}
           </ion-item>
         </ion-list>
         <ion-button color="success" size="medium" type="submit" expand="block">Comprar</ion-button>

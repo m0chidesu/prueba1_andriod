@@ -29,7 +29,7 @@ export class DetalleProductosPage implements OnInit {
       this.datos = this.productosServicio.getProductosById(valor).subscribe(
         (resp : any) => {
           this.datos = resp
-          this.com.push(resp.Comentarios)
+          this.com.push(resp.comentarios)
         }
       )
 

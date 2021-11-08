@@ -14,14 +14,14 @@ export class AgregarProductosPage implements OnInit {
 
   ngOnInit() {
   }
-  addProducto(nom,disp,imgURL,pre,com){
+  addProductos(nombre,disponible,imgURL,precio,com){
     var lista = []
     if(com.value !== ""){ 
       lista.push(com.value)
     }else{
       lista = null;
     }
-    this.serviceservice.addProductos(nom.value, disp.value , imgURL.value, pre.value, lista).subscribe(
+    this.serviceservice.addProductos(nombre.value, disponible.value , imgURL.value, precio.value, lista).subscribe(
       (resp) => {
         console.log("Se agregó? : ", resp)
         this.router.navigate(['/productos'])

@@ -12,15 +12,15 @@
    <ion-col>
      <ion-card>
        <ion-card-content>
-         <ion-input type="text" placeholder ="Ingrese nombre" #nom></ion-input>
+         <ion-input type="text" placeholder ="Ingrese nombre" #nombre></ion-input>
         <div>
-          <ion-checkbox type="checkbox"color="primary" #disp></ion-checkbox>
+          <ion-checkbox type="checkbox"color="primary" #disponible></ion-checkbox>
           <h3>¿Disponible?</h3>
         </div>
-         <ion-input type="text" placeholder ="Ingrese precio" #pre></ion-input>
+         <ion-input type="text" placeholder ="Ingrese precio" #precio></ion-input>
          <ion-input type="text" placeholder ="Ingrese imagen (URL)" #imgURL></ion-input>
-         <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #com></ion-input>
-         <ion-button class ="ion-text-center" color="success" (click) = "addProducto(nom,disp,imgURL,pre,com)">Agregar Producto</ion-button>
+         <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #comentario></ion-input>
+         <ion-button class ="ion-text-center" color="success" (click) = "addProductos(nombre,disponible,imgURL,precio,comentario)">Agregar Producto</ion-button>
        </ion-card-content>
      </ion-card>
    </ion-col>
