@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ServiceService } from '../service.service';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-actualizar-productos',

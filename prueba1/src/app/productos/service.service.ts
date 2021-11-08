@@ -14,11 +14,11 @@ export class ServiceService {
   }
   getProductosById(productoID : string){
     //busqueda de elemento por ID método
-    return this.http.get('http://localhost:1337/productos' + productoID)
+    return this.http.get('http://localhost:1337/productos/' + productoID)
   }
   //delete productos métodoñ
   deleteProductos(productoID : string){
-    return this.http.delete('http://localhost:1337/productos' + productoID)
+    return this.http.delete('http://localhost:1337/productos/' + productoID)
   }
   //Agregar producto
   addProductos(nom: string, disp : boolean, imgURL: string, pre: number, com: string[] ){
@@ -42,7 +42,7 @@ export class ServiceService {
       precio : pre,
       comentarios : com[0]
     }
-  return this.http.post('http://localhost:1337/productos' + productoID, datos)
+  return this.http.post('http://localhost:1337/productos/' + productoID, datos)
   }
 
 }
