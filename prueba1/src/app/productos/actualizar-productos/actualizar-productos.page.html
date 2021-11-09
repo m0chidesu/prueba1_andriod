@@ -13,16 +13,16 @@
     <ion-col>
       <ion-card>
         <ion-card-content>
-          <ion-input type="text" [(ngModel)]="producto.nombre" #nom></ion-input>
+          <ion-input type="text" [(ngModel)]="producto.nombre" #nombre></ion-input>
          <div>
-           <ion-checkbox type="checkbox" [(ngModel)] = "producto.disponibilidad" color="primary" #disp></ion-checkbox>
+           <ion-checkbox type="checkbox" [(ngModel)] = "producto.disponibilidad" color="primary" #disponibilidad></ion-checkbox>
            <h3>¿Disponible?</h3>
          </div>
  
-          <ion-input type="text" [(ngModel)]="producto.precio" #pre></ion-input>
-          <ion-input type="text" [(ngModel)]="producto.imagenURL" #imgURL></ion-input>
-          <ion-input type="text" [(ngModel)]="producto.comentarios"#com></ion-input>
-          <ion-button class ="ion-text-center" color="success" (click) = "actualizarProductos(nom,disp,imgURL,pre,com)">Agregar producto</ion-button>
+          <ion-input type="text" [(ngModel)]="producto.precio" #precio></ion-input>
+          <ion-input type="text" [(ngModel)]="producto.imagenURL" #imagenURL></ion-input>
+          <ion-input type="text" [(ngModel)]="producto.comentarios"#comentarios></ion-input>
+          <ion-button class ="ion-text-center" color="success" (click) = "actualizarProductos(nombre,disponibilidad,imagenURL,precio,comentarios)">Actualizar producto</ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>
