@@ -10,27 +10,27 @@ export class ServiceService {
   constructor(private http : HttpClient) { }
   //get productos método
   getProductos(){
-    return this.http.get('http://localhost:1337/productos')
+    return this.http.get('http://localhost:1337/Productos')
   }
   getProductosById(productoID : string){
     //busqueda de elemento por ID método
-    return this.http.get('http://localhost:1337/productos/' + productoID)
+    return this.http.get('http://localhost:1337/Productos/' + productoID)
   }
   //delete productos métodoñ
   deleteProductos(productoID : string){
-    return this.http.delete('http://localhost:1337/productos/' + productoID)
+    return this.http.delete('http://localhost:1337/Productos/' + productoID)
   }
   //Agregar producto
-  addProductos(nom: string, disp : boolean, imgURL: string, pre: number, com: string[] ){
+  agregarProductos(nombre: string, disponible : boolean, imgURL: string, precio: number, comentarios: string[] ){
     
     var datos = {
-      nombre : nom,
-      disponibilidad : disp,
-      imagenURL : imgURL,
-      precio : pre,
-      comentarios : com
+      Nombre : nombre,
+      Disponibilidad : disponible,
+      ImagenURL : imgURL,
+      Precio : precio,
+      Comentarios : comentarios
     }
-    return this.http.post('http://localhost:1337/productos', datos);
+    return this.http.post('http://localhost:1337/Productos', datos);
   }
 
   updateProductos(productoID : string , nom: string, disp : boolean, imgURL: string, pre: number, com: string[]){
@@ -42,7 +42,7 @@ export class ServiceService {
       precio : pre,
       comentarios : com[0]
     }
-  return this.http.post('http://localhost:1337/productos/' + productoID, datos)
+  return this.http.post('http://localhost:1337/Productos/' + productoID, datos)
   }
 
 }

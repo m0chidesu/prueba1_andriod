@@ -21,7 +21,7 @@ export class AgregarProductosPage implements OnInit {
     }else{
       lista = null;
     }
-    this.serviceservice.addProductos(nombre.value, disponible.value , imgURL.value, precio.value, lista).subscribe(
+    this.serviceservice.agregarProductos(nombre.value, disponible.value , imgURL.value, precio.value, lista).subscribe(
       (resp) => {
         console.log("Se agregó? : ", resp)
         this.router.navigate(['/productos'])
