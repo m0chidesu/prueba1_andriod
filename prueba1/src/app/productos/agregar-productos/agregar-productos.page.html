@@ -12,14 +12,45 @@
    <ion-col>
      <ion-card>
        <ion-card-content>
-         <ion-input type="text" placeholder ="Ingrese nombre" #nombre></ion-input>
-        <div>
+
+         <ion-item>
+          <ion-input type="text" placeholder ="Ingrese nombre" #nombre></ion-input>
+         </ion-item>
+         
+       
+         <ion-item>
           <ion-checkbox type="checkbox"color="primary" #disponible></ion-checkbox>
-          <h3>¿Disponible?</h3>
-        </div>
-         <ion-input type="text" placeholder ="Ingrese precio" #precio></ion-input>
-         <ion-input type="text" placeholder ="Ingrese imagen (URL)" #imgURL></ion-input>
-         <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #comentario></ion-input>
+          <ion-label>¿Disponible?</ion-label>
+         </ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder ="Ingrese precio" #precio></ion-input>
+        </ion-item>
+         
+         <ion-item>
+          <ion-input type="text" placeholder ="Ingrese imagen (URL)" #imgURL></ion-input>
+         </ion-item>
+         
+         <ion-item>
+          <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #comentario></ion-input>
+         </ion-item>
+         
+         
+         <ion-item>
+          <ion-label>Hair Color</ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="brown">Brown</ion-select-option>
+            <ion-select-option value="blonde">Blonde</ion-select-option>
+            <ion-select-option value="black">Black</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Hola</ion-label>
+          <ion-radio></ion-radio>
+        </ion-item>
+
          <ion-button class ="ion-text-center" color="success" (click) = "addProductos(nombre,disponible,imgURL,precio,comentario)">Agregar Producto</ion-button>
        </ion-card-content>
      </ion-card>

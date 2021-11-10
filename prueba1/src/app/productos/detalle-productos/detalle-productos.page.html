@@ -39,7 +39,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-list *ngIf= "datos.Disponibilidad == false; else noDisponible">
+    <ion-list *ngIf= "datos.disponibilidad == off; else noDisponible">
       <h1 class="ion-text-center">Disponible</h1>
     </ion-list>
     
@@ -48,7 +48,7 @@
         <h1 class="ion-text-center">Precio: ${{datos.precio}}</h1>
       </ion-col>
     </ion-row>
-
+      
     <ion-row>
       <ion-col>
         <ion-list *ngIf= "datos.comentarios && datos.comentarios.length > 0; else sinComentarios">

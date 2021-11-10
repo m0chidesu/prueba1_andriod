@@ -24,23 +24,26 @@ export class ServiceService {
   agregarProductos(nombre: string, disponible : boolean, imgURL: string, precio: number, comentarios: string[] ){
     
     var datos = {
-      "Nombre" : nombre,
-      "Disponibilidad" : disponible,
-      "ImagenURL" : imgURL,
-      "Precio" : precio,
-      "Comentarios" : comentarios[0]
+      "nombre" : nombre,
+      "disponibilidad" : disponible,
+      "imagenURL" : imgURL,
+      "precio" : precio,
+      "comentarios" : comentarios[0]
     }
-    return this.http.post('http://localhost:1337/Productos', datos);
+
+   console.log(datos)
+
+    return this.http.post('http://localhost:1337/Productos/', datos);
   }
 
   updateProductos(productoID : string , nom: string, disp : boolean, imgURL: string, pre: number, com: string[]){
     
     var datos = {
-      "Nombre" : nom,
-      "Disponibilidad" : disp,
-      "ImagenURL" : imgURL,
-      "Precio" : pre,
-      "Comentarios" : com[0]
+      "nombre" : nom,
+      "disponibilidad" : disp,
+      "imagenURL" : imgURL,
+      "precio" : pre,
+      "comentarios" : com[0]
     }
   return this.http.put('http://localhost:1337/Productos/' + productoID, datos)
   }

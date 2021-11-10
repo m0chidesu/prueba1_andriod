@@ -13,15 +13,42 @@
     <ion-col>
       <ion-card>
         <ion-card-content>
-          <ion-input type="text" [(ngModel)]="producto.nombre" #nombre></ion-input>
-         <div>
-           <ion-checkbox type="checkbox" [(ngModel)] = "producto.disponibilidad" color="primary" #disponibilidad></ion-checkbox>
-           <h3>¿Disponible?</h3>
-         </div>
- 
-          <ion-input type="text" [(ngModel)]="producto.precio" #precio></ion-input>
-          <ion-input type="text" [(ngModel)]="producto.imagenURL" #imagenURL></ion-input>
-          <ion-input type="text" [(ngModel)]="producto.comentarios"#comentarios></ion-input>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="producto.nombre" #nombre></ion-input>
+          </ion-item>
+          
+          <ion-item>
+           <ion-checkbox slot="start" type="checkbox" [(ngModel)] = "producto.disponibilidad" color="primary"   #disponibilidad></ion-checkbox>
+           <ion-label>¿Disponible?  </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="producto.precio" #precio></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="producto.imagenURL" #imagenURL></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="producto.comentarios"#comentarios></ion-input>
+          </ion-item>
+             
+          <ion-item>
+            <ion-label>Hair Color</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="brown">Brown</ion-select-option>
+              <ion-select-option value="blonde">Blonde</ion-select-option>
+              <ion-select-option value="black">Black</ion-select-option>
+              <ion-select-option value="red">Red</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>Hola</ion-label>
+            <ion-radio></ion-radio>
+          </ion-item>
+          
           <ion-button class ="ion-text-center" color="success" (click) = "actualizarProductos(nombre,disponibilidad,imagenURL,precio,comentarios)">Actualizar producto</ion-button>
         </ion-card-content>
       </ion-card>
