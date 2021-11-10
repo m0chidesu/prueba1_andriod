@@ -5,4 +5,6 @@ export interface Producto{
     imagenURL : string;
     precio : number;
     comentarios : string[];
+    categoria : string;
+    escala : string;
 }

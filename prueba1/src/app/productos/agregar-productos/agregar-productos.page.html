@@ -37,21 +37,44 @@
          
          
          <ion-item>
-          <ion-label>Hair Color</ion-label>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-            <ion-select-option value="brown">Brown</ion-select-option>
-            <ion-select-option value="blonde">Blonde</ion-select-option>
-            <ion-select-option value="black">Black</ion-select-option>
-            <ion-select-option value="red">Red</ion-select-option>
+          <ion-label>Categoria</ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" #categoria>
+            <ion-select-option value="Blindados">Blindados</ion-select-option>
+            <ion-select-option value="Aviones">Aviones</ion-select-option>
+            <ion-select-option value="Barcos">Barcos</ion-select-option>
+            <ion-select-option value="Coleccionables">Coleccionables</ion-select-option>
           </ion-select>
         </ion-item>
 
-        <ion-item>
-          <ion-label>Hola</ion-label>
-          <ion-radio></ion-radio>
-        </ion-item>
+        <ion-list>
+          <ion-radio-group name="rbEscala" #escala >
+            <ion-list-header>
+              <ion-label>Escala</ion-label>
+            </ion-list-header>
+      
+            <ion-item>
+              <ion-label>No aplica</ion-label>
+              <ion-radio slot="1" value="No aplica"></ion-radio>
+            </ion-item>
 
-         <ion-button class ="ion-text-center" color="success" (click) = "addProductos(nombre,disponible,imgURL,precio,comentario)">Agregar Producto</ion-button>
+            <ion-item>
+              <ion-label>1/72</ion-label>
+              <ion-radio slot="2" value="1/72"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>1/48</ion-label>
+              <ion-radio slot="3" value="1/48" n></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>1/32</ion-label>
+              <ion-radio slot="4" value="1/32"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+         <ion-button class ="ion-text-center" color="success" (click) = "addProductos(nombre,disponible,imgURL,precio,comentario, categoria, escala)">Agregar Producto</ion-button>
        </ion-card-content>
      </ion-card>
    </ion-col>

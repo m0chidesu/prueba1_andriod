@@ -26,6 +26,12 @@
     },
     "comentarios": {
       "type": "text"
+    },
+    "categoria": {
+      "type": "string"
+    },
+    "escala": {
+      "type": "string"
     }
   }
 }

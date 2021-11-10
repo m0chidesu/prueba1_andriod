@@ -35,19 +35,42 @@
           </ion-item>
              
           <ion-item>
-            <ion-label>Hair Color</ion-label>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-              <ion-select-option value="brown">Brown</ion-select-option>
-              <ion-select-option value="blonde">Blonde</ion-select-option>
-              <ion-select-option value="black">Black</ion-select-option>
-              <ion-select-option value="red">Red</ion-select-option>
+            <ion-label>Categoria</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]= "producto.categorias" #categoria>
+              <ion-select-option value="brown">Blindados</ion-select-option>
+              <ion-select-option value="blonde">Aviones</ion-select-option>
+              <ion-select-option value="black">Barcos</ion-select-option>
+              <ion-select-option value="red">Coleccionables</ion-select-option>
             </ion-select>
           </ion-item>
           
-          <ion-item>
-            <ion-label>Hola</ion-label>
-            <ion-radio></ion-radio>
-          </ion-item>
+          <ion-list>
+            <ion-radio-group [(ngModel)]="producto.escala" value="rbEscala" #escala>
+              <ion-list-header>
+                <ion-label>Escala</ion-label>
+              </ion-list-header>
+        
+              <ion-item>
+                <ion-label>No aplica</ion-label>
+                <ion-radio slot="start" value=0 ></ion-radio>
+              </ion-item>
+  
+              <ion-item>
+                <ion-label>1/72</ion-label>
+                <ion-radio slot="start" value=1></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>1/48</ion-label>
+                <ion-radio slot="start" value=2></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>1/32</ion-label>
+                <ion-radio slot="start" value=3></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
           
           <ion-button class ="ion-text-center" color="success" (click) = "actualizarProductos(nombre,disponibilidad,imagenURL,precio,comentarios)">Actualizar producto</ion-button>
         </ion-card-content>
