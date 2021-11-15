@@ -21,12 +21,12 @@ export class ServiceService {
     return this.http.delete('http://localhost:1337/Productos/' + productoID)
   }
   //Agregar producto
-  agregarProductos(nombre: string, disponible : boolean, imgURL: string, precio: number, comentarios: string[], categoria : string, escala : string){
+  agregarProductos(nombre: string, disponible : boolean, imagenURL: string , precio: number, comentarios: string[], categoria : string, escala : string){
     
     var datos = {
       "nombre" : nombre,
       "disponibilidad" : disponible,
-      "imagenURL" : imgURL,
+      "imagenURL" : imagenURL,
       "precio" : precio,
       "comentarios" : comentarios[0],
       "categoria" : categoria,
@@ -35,7 +35,7 @@ export class ServiceService {
 
    console.log(datos)
 
-    return this.http.post('http://localhost:1337/Productos/', datos);
+    return this.http.post('http://localhost:1337/Productos/', datos)
   }
 
   updateProductos(productoID : string , nom: string, disp : boolean, imgURL: string, pre: number, com: string[], categ: string, scale : string){

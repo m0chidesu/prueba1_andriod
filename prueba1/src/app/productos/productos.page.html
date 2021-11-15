@@ -17,10 +17,11 @@
   <ion-list>
     <ion-item *ngFor = "let pro of productos" [routerLink] = "['/productos',pro.id]">
       <ion-avatar slot="start">
-        <ion-img [src] = 'pro.imagenURL'></ion-img>
+        <ion-img [src] = "pro.imagenURL"></ion-img>
       </ion-avatar>
       <ion-label>
         {{pro.nombre}}
+
       </ion-label>
 
     </ion-item>

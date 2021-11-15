@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Router } from '@angular/router';
+//declare var require : any
 
 @Component({
   selector: 'app-agregar-productos',
@@ -9,25 +10,44 @@ import { Router } from '@angular/router';
 })
 export class AgregarProductosPage implements OnInit {
   
+  //private archivo: File = null;
 
   constructor(private serviceservice: ServiceService, private router : Router) { }
 
   ngOnInit() {
   }
-  addProductos(nombre,disponible,imgURL,precio,com, categoria, escala ){
-    var lista = []
+
+  /*capturarImg(event){
+
+      //Guardado de imagen en la variable archivo
+      this.archivo = <File>event.target.files[0]
+  
+    }*/
+
+  addProductos(nombre,disponible,imagenURL,precio,com, categoria, escala ){
+    /*const axios = require('axios')
+    const STRAPI_BASE_URL = 'http://localhost:1337'
+    const datos = new FormData()
+    datos.append('files', this.archivo)
+    datos.append('ref', 'Productos')
+    datos.append('refId', '16')
+    datos.append('field', 'imagen')
+
+   axios.post('${STRAPI_BASE_URL}/upload', datos)*/
+   
+    var lista = []  
     if(com.value !== ""){ 
       lista.push(com.value)
     }else{
       lista = null;
     }
-    this.serviceservice.agregarProductos(nombre.value, disponible.value , imgURL.value, precio.value, lista, categoria.value, escala.value).subscribe(
+    this.serviceservice.agregarProductos(nombre.value, disponible.value ,imagenURL.value, precio.value, lista, categoria.value, escala.value).subscribe(
       (resp) => {
-        console.log("Se agregó? : ", resp)
+        //console.log("Se agregó? : ", resp)
         this.router.navigate(['/productos'])
       },
       (error) => {
-        console.log("Error: ", error)
+        console.log("Error, lo que sucedió fue que: ", error)
       }
     );
 
