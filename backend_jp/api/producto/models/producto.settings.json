@@ -13,25 +13,40 @@
   "pluginOptions": {},
   "attributes": {
     "nombre": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "disponibilidad": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "precio": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "comentarios": {
-      "type": "text"
+      "type": "text",
+      "required": false
     },
     "categoria": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "escala": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "imagenURL": {
-      "type": "string"
+    "imagen": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

@@ -14,10 +14,33 @@
 </ion-header>
 
 <ion-content class="background-prod">
+  
+  <!--<ion-searchbar
+
+  [(ngModel)]="searchObj"
+
+  [showCancelButton]="miStringDeCancell"
+
+  (ionInput)="onInput($event)"
+
+  (ionCancel)="onCancel($event)">
+
+</ion-searchbar>-->
+
+  
+  <!-- prueba de 9swiper  -->
+
+    <!--<swiper>
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper>-->
+  
+  
   <ion-list>
     <ion-item *ngFor = "let pro of productos" [routerLink] = "['/productos',pro.id]">
       <ion-avatar slot="start">
-        <ion-img [src] = "pro.imagenURL"></ion-img>
+        <ion-img [src] = "'http://localhost:1337' + pro.imagen.url" ></ion-img>
       </ion-avatar>
       <ion-label>
         {{pro.nombre}}
@@ -31,34 +54,5 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
-<!--<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="schedule">
-      <ion-icon name="calendar"></ion-icon>
-      <ion-label>Schedule</ion-label>
-      <ion-badge>6</ion-badge>
-    </ion-tab-button>
-
-    <ion-tab-button tab="speakers">
-      <ion-icon name="person-circle"></ion-icon>
-      <ion-label>Speakers</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="map">
-      <ion-icon name="map"></ion-icon>
-      <ion-label>Map</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="about">
-      <ion-icon name="information-circle"></ion-icon>
-      <ion-label>About</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>-->
-
-
-
-
 
 </ion-content>

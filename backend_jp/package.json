@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "knex": "0.21.18",
+    "ng2-search-filter": "^0.5.1",
     "sqlite3": "5.0.0",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
@@ -23,7 +24,8 @@
     "strapi-plugin-i18n": "3.6.8",
     "strapi-plugin-upload": "3.6.8",
     "strapi-plugin-users-permissions": "3.6.8",
-    "strapi-utils": "3.6.8"
+    "strapi-utils": "3.6.8",
+    "swiper": "^6.8.4"
   },
   "author": {
     "name": "A Strapi developer"

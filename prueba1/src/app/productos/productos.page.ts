@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from './service.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular'; 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.page.html',
@@ -10,6 +10,8 @@ import { AlertController } from '@ionic/angular';
 export class ProductosPage implements OnInit {
   private productos : any = []
   private user = localStorage.getItem("datosUser")
+  private objBuscar : String
+  private objetos =[]
   constructor(private servicioProductos: ServiceService, private router : Router, private alertController: AlertController) { }
 
   ngOnInit() {
@@ -17,7 +19,7 @@ export class ProductosPage implements OnInit {
     this.servicioProductos.getProductos().subscribe(
       (resp) => {
         this.productos = resp,
-        console.log(resp)
+        console.log(resp[25].imagen.url)
 
       },
       (err) => {
@@ -36,6 +38,7 @@ export class ProductosPage implements OnInit {
       }
     )
   }
+
   redirectAgregar(){
     //chequeo de redireccion por consola
     console.log('redirect pass')

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "tipo_productos",
   "info": {
-    "name": "TipoProducto"
+    "name": "Marca",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nombreTipo": {
+    "nombreMarca": {
       "type": "string"
     }
   }

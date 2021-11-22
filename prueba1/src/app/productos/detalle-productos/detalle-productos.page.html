@@ -39,7 +39,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-list *ngIf= "datos.disponibilidad == off; else noDisponible">
+    <ion-list *ngIf= "datos.disponibilidad == true; else noDisponible">
       <h1 class="ion-text-center">Disponible</h1>
     </ion-list>
     
@@ -75,9 +75,15 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <h1 class="ion-text-center">Categoria: {{datos.categoria}}</h1>
-      </ion-col>
+      <ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-select class="ion-text-center" disabled="true" [(ngModel)]="datos.categoria" #categoria>
+          <ion-select-option value="1">Blindados</ion-select-option>
+          <ion-select-option value="2">Aviones</ion-select-option>
+          <ion-select-option value="3">Barcos</ion-select-option>
+          <ion-select-option value="4">Coleccionables</ion-select-option>
+        </ion-select>
+      </ion-item>
     </ion-row>
 
     <ion-row>
