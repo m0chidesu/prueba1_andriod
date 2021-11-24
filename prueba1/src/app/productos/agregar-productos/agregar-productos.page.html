@@ -27,9 +27,14 @@
           <ion-input type="text" placeholder ="Ingrese precio" #precio></ion-input>
         </ion-item>
          
-         <ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder ="Ingrese URL de imagen" #imgURL></ion-input>
+        </ion-item>
+
+         <!--<ion-item>
           <ion-input type="file" accept="image/*" [(ngModel)]="imageFilePath" (change)="capturarImg($event)" #imgURL></ion-input>
-         </ion-item>
+         </ion-item>-->
          
          <ion-item>
           <ion-input type="text" placeholder ="Ingrese comentarios (Opcional)" #comentario></ion-input>
@@ -38,11 +43,19 @@
          
          <ion-item>
           <ion-label>Categoria</ion-label>
-          <ion-select value="brown" okText="Seleccionar" cancelText="Dismiss" #categoria>
+          <ion-select value="brown" okText="Seleccionar" cancelText="Atrás" #categoria>
             <ion-select-option value="1">Blindados</ion-select-option>
             <ion-select-option value="2">Aviones</ion-select-option>
             <ion-select-option value="3">Barcos</ion-select-option>
             <ion-select-option value="4">Coleccionables</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Marca</ion-label>
+          <ion-select  value="brown" okText="Seleccionar" cancelText="Atrás"  #marca>
+            <ion-select-option *ngFor="let mar of marcas" [value]="mar.nombreMarca">{{mar.nombreMarca}}</ion-select-option>
+
           </ion-select>
         </ion-item>
 
@@ -77,7 +90,7 @@
           </ion-radio-group>
         </ion-list>
         
-         <ion-button class ="ion-text-center" color="success" (click) = "addProductos(nombre,disponible,precio,comentario, categoria, escala)">Agregar Producto</ion-button>
+         <ion-button class ="ion-text-center" color="success" (click) = "addProductos(nombre,disponible,precio,imgURL,comentario, categoria, marca,escala)">Agregar Producto</ion-button>
        </ion-card-content>
      </ion-card>
    </ion-col>

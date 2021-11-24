@@ -74,7 +74,7 @@
         
       </ion-col>
     </ion-row>
-    <ion-row>
+
       <ion-item>
         <ion-label>Categoria</ion-label>
         <ion-select class="ion-text-center" disabled="true" [(ngModel)]="datos.categoria" #categoria>
@@ -84,7 +84,14 @@
           <ion-select-option value="4">Coleccionables</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-row>
+
+      <ion-item>
+        <ion-label>Marca</ion-label>
+        <ion-select class="ion-text-center" disabled="true" [(ngModel)]="datos.marca" #categoria>
+          <ion-select-option [value]="datos.marca">{{datos.marca}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
 
     <ion-row>
       <ion-col>

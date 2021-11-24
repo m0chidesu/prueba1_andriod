@@ -11,10 +11,17 @@ import { ServiceService } from '../service.service';
 export class ActualizarProductosPage implements OnInit {
   private producto : any = []
   private idproducto : any = []
+  private marcas : any = []
 
   constructor(private ActRoute : ActivatedRoute, private router : Router, private http : HttpClient, private productoServicio : ServiceService) { }
 
   ngOnInit() {
+    this.productoServicio.getMarcas().subscribe(
+      (resp) => (this.marcas = resp),
+      (err) => console.log(err)
+
+    )
+    
     this.ActRoute.paramMap.subscribe(paramMap =>{
       const valor = paramMap.get('prodID')
       this.idproducto = valor
@@ -28,9 +35,9 @@ export class ActualizarProductosPage implements OnInit {
       ) 
     })
   }
-  actualizarProductos(titulo, disponibilidad, precio,comentarios, categoria, escala){
+  actualizarProductos(nombre,disponibilidad,imagenURL,precio,comentarios,categoria,marca,escala){
     
-    this.productoServicio.updateProductos(this.idproducto, titulo.value, disponibilidad.value, precio.value, comentarios.value, categoria.value, escala.value).subscribe(
+    this.productoServicio.updateProductos(this.idproducto, nombre.value, disponibilidad.value, precio.value, imagenURL.value,comentarios.value, categoria.value,marca.value, escala.value).subscribe(
       (resp) => {
         console.log(resp)
         this.router.navigate(['/productos'])

@@ -11,22 +11,27 @@ declare var require : any
 export class AgregarProductosPage implements OnInit {
   
   private archivo: File = null 
+  private marcas : any = []
 
   constructor(private serviceservice: ServiceService, private router : Router) { }
 
   ngOnInit() {
+    this.serviceservice.getMarcas().subscribe(
+      (resp) => {this.marcas = resp},
+      (err) => console.log(err)
+    )
   }
 
-  capturarImg(event){
+  /*capturarImg(event){
 
     console.log(event)  
     //Guardado de imagen en la variable archivo
       this.archivo = <File>event.target.files[0]
   
-    }
+    }*/
 
-  addProductos(nombre,disponible,precio,comentario, categoria, escala ){
-    const axios = require('axios')
+  addProductos(nombre,disponible,precio,imagenURL,comentario, categoria, marca,escala ){
+    /*const axios = require('axios')
     const STRAPI_BASE_URL = 'http://localhost:1337'
     const datos = new FormData()
     datos.append('files', this.archivo)
@@ -34,7 +39,7 @@ export class AgregarProductosPage implements OnInit {
     datos.append('refId', '26')
     datos.append('field', 'imagen')
 
-   axios.post(`${STRAPI_BASE_URL}/upload`, datos)
+   axios.post(`${STRAPI_BASE_URL}/upload`, datos)*/
    
     var lista = []  
     if(comentario.value !== ""){ 
@@ -43,7 +48,7 @@ export class AgregarProductosPage implements OnInit {
       lista = null;
     }
 
-    this.serviceservice.agregarProductos(nombre.value, disponible.value , precio.value, comentario.value, categoria.value, escala.value).subscribe(
+    this.serviceservice.agregarProductos(nombre.value, disponible.value , precio.value,imagenURL.value, comentario.value, categoria.value, marca.value,escala.value).subscribe(
       (resp) => {
       console.log("Se agregó? : ", resp)
         

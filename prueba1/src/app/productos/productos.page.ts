@@ -10,16 +10,16 @@ import { AlertController } from '@ionic/angular';
 export class ProductosPage implements OnInit {
   private productos : any = []
   private user = localStorage.getItem("datosUser")
-  private objBuscar : String
-  private objetos =[]
   constructor(private servicioProductos: ServiceService, private router : Router, private alertController: AlertController) { }
 
   ngOnInit() {
     //obtener la lista
     this.servicioProductos.getProductos().subscribe(
       (resp) => {
-        this.productos = resp,
-        console.log(resp[25].imagen.url)
+        this.productos = resp
+        //console.log(resp[25].imagen.url)
+        //(uso con axios) this.productos[this.productos.length-1].id + 1
+
 
       },
       (err) => {

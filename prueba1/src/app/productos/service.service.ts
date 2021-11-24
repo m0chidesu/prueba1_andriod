@@ -8,6 +8,13 @@ export class ServiceService {
   private productos : any = []
 
   constructor(private http : HttpClient) { }
+  getUsers(){
+    return this.http.get('http://localhost:1337/Usuarios')
+  }
+
+  getMarcas(){
+    return this.http.get('http://localhost:1337/Tipo-Productos')
+  }
   //get productos método
   getProductos(){
     return this.http.get('http://localhost:1337/Productos')
@@ -21,14 +28,16 @@ export class ServiceService {
     return this.http.delete('http://localhost:1337/Productos/' + productoID)
   }
   //Agregar producto
-  agregarProductos(nombre: string, disponible : boolean, precio: number, comentarios: string, categoria : string, escala : string){
+  agregarProductos(nombre: string, disponible : boolean, precio: number, imagenURL: string ,comentarios: string, categoria : string, marca : string,escala : string){
     
     var datos = {
       'nombre' : nombre,
       'disponibilidad' : disponible ? true: false,
       'precio' : precio,
+      'imagenURL' : imagenURL,
       'comentarios' : comentarios,
       'categoria' : categoria,
+      'marca' : marca,
       'escala' : escala,
       
  
@@ -39,14 +48,16 @@ export class ServiceService {
     return this.http.post('http://localhost:1337/Productos', datos)
   }
 
-  updateProductos(productoID : string , nom: string, disp : boolean, pre: number, com: string, categ: string, scale : string){
+  updateProductos(productoID : string , nom: string, disp : boolean, pre: number,imgURL : string, com: string, categ: string, marca: string, scale : string){
     
     var datos = {
       "nombre" : nom,
       "disponibilidad" : disp ? true: false,
       "precio" : pre,
-      "comentarios" : com[0],
+      "imagenURL" : imgURL,
+      "comentarios" : com,
       "categoria" : categ,
+      "marca" : marca,
       "escala" : scale
     }
       

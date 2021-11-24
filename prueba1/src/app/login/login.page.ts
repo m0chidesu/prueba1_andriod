@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ServiceService } from '../productos/service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,37 +10,37 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router : Router, private alertController : AlertController) { }
+  private usuarios : any = [];
+  private listafor : any= [];
+  
+  constructor(private router : Router, private alertController : AlertController,private servicio :  ServiceService) { }
 
   ngOnInit() {
-  }
-  async login(form){
-    var user = form.value["name"]
-    var pass = form.value["password"]
+    this.servicio.getUsers().subscribe(
+      (resp) =>{ this.usuarios = resp},
+      (error) =>{console.log(error)}
+    );
 
-    console.log(form.value) //para testeo (unused)
-    if(user == "admin" && pass == "123"){
-      localStorage.setItem("datosUser",user);
-      
-      const alert = await this.alertController.create({
-        cssClass: 'my-custom-class',
-        header: 'Bienvenido',
-        message: 'Ha ingresado con éxito ' + user,
-        buttons: ['Aceptar']
-      });
-  
-      await alert.present();
-  
-      //Espera al cierre de la ventana
-      const { role } = await alert.onDidDismiss();
-      console.log('onDidDismiss resolved with role', role);
-      
-      
-      //redirect a productos
-      this.router.navigate(['/productos'])
-      
-    }else{
-      console.log('Error')
-    }
+  }
+  login(form){
+    var username = form.value["name"]
+    var password = form.value["password"]
+
+    this.usuarios.forEach(x => {
+     
+      if(username === x.username && password ===  x.password){
+        localStorage.setItem("datosUser", JSON.stringify(username));
+        localStorage.setItem("datosPass", JSON.stringify(password));
+        
+        this.router.navigate(['/productos'])
+        
+      }else{
+        console.log('Error')
+      }
+
+    });
+
+
+
   }
 }

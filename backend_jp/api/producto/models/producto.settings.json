@@ -36,17 +36,11 @@
       "type": "string",
       "required": true
     },
-    "imagen": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
+    "imagenURL": {
+      "type": "string"
+    },
+    "marca": {
+      "type": "string"
     }
   }
 }
