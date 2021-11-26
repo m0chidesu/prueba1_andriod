@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ServiceService } from '../productos/service.service';
+declare var require : any
 
 @Component({
   selector: 'app-login',
@@ -22,25 +24,26 @@ export class LoginPage implements OnInit {
     );
 
   }
-  login(form){
+  async login(form){
     var username = form.value["name"]
     var password = form.value["password"]
 
-    this.usuarios.forEach(x => {
-     
-      if(username === x.username && password ===  x.password){
-        localStorage.setItem("datosUser", JSON.stringify(username));
-        localStorage.setItem("datosPass", JSON.stringify(password));
+      const axios = require('axios')
+      axios.post('http://localhost:1337/auth/local',{
+        identifier : username,
+        password : password
+      })
+      .then(response =>{
+        //si fnuciona
+        console.log('Funciona');
+        console.log('User profile', response.data.user);
         
         this.router.navigate(['/productos'])
         
-      }else{
-        console.log('Error')
-      }
-
-    });
-
-
-
+      })
+      .catch(error =>{
+        console.log('Error : ', error.response)
+        
+      });
   }
 }

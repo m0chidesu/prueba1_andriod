@@ -35,17 +35,39 @@ export class DetalleProductosPage implements OnInit {
 
     })
   }
-  eliminarProducto(){
-    this.productosServicio.deleteProductos(this.datos.id).subscribe(
-      (resp : any) => {
-        this.datos = resp
-        this.router.navigate(['/productos'])
-      },
-      (err) =>{
-        console.log(err)
+ async eliminarProducto(){
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: '¿Eliminar Producto?',
+      message: '<strong>¿Seguro que desea Eliminar el producto?</strong>',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            (err) =>{
+              console.log(err)
+      
+            }
+          }
+        }, {
+          text: 'Aceptar',
+          handler: (bruh) => {    
+            this.productosServicio.deleteProductos(this.datos.id).subscribe(
+            (resp : any) => {
+              this.datos = resp
 
-      }
-    )
+            }
+  
+          )
+          this.router.navigate(['/productos'])
+          }
+        }
+      ]
+    });
+    await alert.present();
+
   }
 
 editarProducto(){

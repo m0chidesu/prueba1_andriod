@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 declare var require : any
 
 @Component({
@@ -13,7 +14,7 @@ export class AgregarProductosPage implements OnInit {
   private archivo: File = null 
   private marcas : any = []
 
-  constructor(private serviceservice: ServiceService, private router : Router) { }
+  constructor(private serviceservice: ServiceService, private router : Router, private alertController : AlertController) { }
 
   ngOnInit() {
     this.serviceservice.getMarcas().subscribe(
@@ -30,16 +31,7 @@ export class AgregarProductosPage implements OnInit {
   
     }*/
 
-  addProductos(nombre,disponible,precio,imagenURL,comentario, categoria, marca,escala ){
-    /*const axios = require('axios')
-    const STRAPI_BASE_URL = 'http://localhost:1337'
-    const datos = new FormData()
-    datos.append('files', this.archivo)
-    datos.append('ref', 'Productos')
-    datos.append('refId', '26')
-    datos.append('field', 'imagen')
-
-   axios.post(`${STRAPI_BASE_URL}/upload`, datos)*/
+  async addProductos(nombre,disponible,precio,imagenURL,comentario, categoria, marca,escala ){
    
     var lista = []  
     if(comentario.value !== ""){ 
@@ -47,7 +39,7 @@ export class AgregarProductosPage implements OnInit {
     }else{
       lista = null;
     }
-
+   if(nombre.value.length>0 && marca.value !=null && categoria.value !=null && precio.value > 0){
     this.serviceservice.agregarProductos(nombre.value, disponible.value , precio.value,imagenURL.value, comentario.value, categoria.value, marca.value,escala.value).subscribe(
       (resp) => {
       console.log("Se agregó? : ", resp)
@@ -56,10 +48,27 @@ export class AgregarProductosPage implements OnInit {
       },
       (error) => {
         console.log("Error, lo que sucedió fue que: ", error)
+        
       }
     );
+   }else{
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Error',
+        message: 'Campos Incompletos',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+  
+      const { role } = await alert.onDidDismiss();
+      console.log('onDidDismiss resolved with role', role);
+    }
+  
+   }
+
 
 
   }
 
-}
+
