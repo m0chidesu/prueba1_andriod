@@ -9,7 +9,7 @@ export class ServiceService {
 
   constructor(private http : HttpClient) { }
   getUsers(){
-    return this.http.get('http://localhost:1337/Usuarios')
+    return this.http.get('http://localhost:1337/Users')
   }
 
   getMarcas(){

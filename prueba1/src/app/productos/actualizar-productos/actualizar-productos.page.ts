@@ -37,7 +37,7 @@ export class ActualizarProductosPage implements OnInit {
   }
   actualizarProductos(nombre,disponibilidad,imagenURL,precio,comentarios,categoria,marca,escala){
     
-    this.productoServicio.updateProductos(this.idproducto, nombre.value, disponibilidad.value, precio.value, imagenURL.value,comentarios.value, categoria.value,marca.value, escala.value).subscribe(
+    this.productoServicio.updateProductos(this.idproducto, nombre.value, disponibilidad.checked, precio.value, imagenURL.value,comentarios.value, categoria.value,marca.value, escala.value).subscribe(
       (resp) => {
         console.log(resp)
         this.router.navigate(['/productos'])

@@ -40,7 +40,7 @@ export class AgregarProductosPage implements OnInit {
       lista = null;
     }
    if(nombre.value.length>0 && marca.value !=null && categoria.value !=null && precio.value > 0){
-    this.serviceservice.agregarProductos(nombre.value, disponible.value , precio.value,imagenURL.value, comentario.value, categoria.value, marca.value,escala.value).subscribe(
+    this.serviceservice.agregarProductos(nombre.value, disponible.checked , precio.value,imagenURL.value, comentario.value, categoria.value, marca.value,escala.value).subscribe(
       (resp) => {
       console.log("Se agregó? : ", resp)
         
