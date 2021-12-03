@@ -31,7 +31,15 @@ const routes: Routes = [
     {
        path : "actualizar-productos/:prodID",
       loadChildren: () => import('./productos/actualizar-productos/actualizar-productos.module').then(m => m.ActualizarProductosPageModule)
-    }
+    },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'passrecovery',
+    loadChildren: () => import('./passrecovery/passrecovery.module').then( m => m.PassrecoveryPageModule)
+  }
    
 ];
  

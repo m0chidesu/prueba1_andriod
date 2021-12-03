@@ -1,20 +1,26 @@
+
 <ion-content class="background-login">
   <!--<ion-img [src] = "./assets/img/1.png"></ion-img> intento de integracion de imagen-->
-<form #form= "ngForm" (ngSubmit) = "login(form)">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+<form #form= "ngForm" (ngSubmit) = "register(form)">
   <ion-grid>
     <ion-row color="primary" justify-content-center>
       <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-        <h3 class="ion-text-center">Iniciar Sesion</h3>
+        <h3 class="ion-text-center">Registrarse</h3>
         <ion-item>
           <ion-input name="name" type="text" placeholder="Usuario" ngModel requiered></ion-input>
         </ion-item>
         <ion-item>
+          <ion-input name="email" type="email" placeholder="Email" ngModel requiered></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-input name="password" type="password" placeholder="Contraseña" ngModel requiered></ion-input>
         </ion-item>
-        <ion-button size="large" type="submit" expand="block">Entrar</ion-button>
+        <ion-button size="large" type="submit" expand="block">Registrase</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </form>
-<ion-button type="round-outline" expand="center" (click)  ="redirectRegister()">Registrarse</ion-button>
 </ion-content>

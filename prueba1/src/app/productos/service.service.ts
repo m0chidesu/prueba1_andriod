@@ -8,9 +8,6 @@ export class ServiceService {
   private productos : any = []
 
   constructor(private http : HttpClient) { }
-  getUsers(){
-    return this.http.get('http://localhost:1337/Users')
-  }
 
   getMarcas(){
     return this.http.get('http://localhost:1337/Tipo-Productos')

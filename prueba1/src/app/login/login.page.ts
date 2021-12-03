@@ -45,5 +45,10 @@ export class LoginPage implements OnInit {
         console.log('Error : ', error.response)
         
       });
+
+  }
+  redirectRegister(){
+      console.log('redirect pass')
+      this.router.navigate(['/register'])
   }
 }
