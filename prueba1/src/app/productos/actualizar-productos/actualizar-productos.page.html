@@ -48,7 +48,6 @@
             <ion-label>Marca</ion-label>
             <ion-select  value="brown" okText="Seleccionar" cancelText="Atrás"  [(ngModel)]="producto.marca" #marca>
               <ion-select-option *ngFor="let mar of marcas" [value]="mar.nombreMarca">{{mar.nombreMarca}}</ion-select-option>
-  
             </ion-select>
           </ion-item>
           
