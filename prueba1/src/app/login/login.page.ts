@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
     if(username != '' && password != ''){
 
       const axios = require('axios')
-      axios.post('http://localhost:1337/auth/local',{
+      axios.post('https://app-maqueta-desconocida.herokuapp.com/auth/local',{
         identifier : username,
         password : password
       })

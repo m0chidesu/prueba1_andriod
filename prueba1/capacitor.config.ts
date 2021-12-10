@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.duoc.app',
-  appName: 'prueba1',
+  appId: 'com.maqdes.app',
+  appName: 'Maqueta Desc',
   webDir: 'www',
   bundledWebRuntime: false
 };
