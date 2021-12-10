@@ -19,7 +19,7 @@ export class RegisterPage implements OnInit {
   var email = form.value["email"]
   var password = form.value["password"]
   const axios = require('axios')
-  axios.post('http://localhost:1337/auth/local/register', {
+  axios.post('https://app-maqueta-desconocida.herokuapp.com/auth/local/register', {
     username: username,
     email: email,
     password: password,
