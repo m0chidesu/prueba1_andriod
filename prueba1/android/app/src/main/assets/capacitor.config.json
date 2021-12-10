@@ -1,0 +1,6 @@
+{
+	"appId": "com.duoc.app",
+	"appName": "prueba1",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
